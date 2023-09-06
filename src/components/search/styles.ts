@@ -1,30 +1,38 @@
 import styled from 'styled-components'
 import { ReactComponent as SearchIcon } from '../../assets/search-icon.svg'
 
-export const InputSearch = styled.input`
-  background-color: #f1f7fc;
-  border: 1px solid #dee1e6;
-  outline: #dee1e6;
-  line-height: 300%;
-  font-size: 16px;
-  font-weight: 400;
-  cursor: default;
-  color: #406a76;
-  border-radius: 50px;
-  padding: 0 16px;
+export const SearchContainer = styled.form`
   width: 100%;
+  display: flex;
+  align-items: center;
+  gap: ${props => props.theme.sizes[2]};
+  padding: 0 ${props => props.theme.sizes[4]};
 
-  &:placeholder {
-    color: #406a76;
-    opacity: 0;
+  border-radius: ${props => props.theme.rounded.default};
+  background-color: ${props => props.theme.colors.smoke};
+  border: 1px solid ${props => props.theme.colors.gray};
+  transition: border-color 0.1s ease-in;
+
+  &:focus-within {
+    border-color: ${props => props.theme.colors.carbon};
   }
 `
 
-export const Icon = styled(SearchIcon)`
-  position: relative;
-  right: 32px;
+export const InputSearch = styled.input`
+  flex: 1;
+  height: 48px;
+  padding: ${({ theme }) => `${theme.sizes[2]} ${theme.sizes[2]}`};
+  color: ${props => props.theme.colors.carbon};
+  font-size: ${props => props.theme.font.md};
 
-  @media (min-width: 992px) {
-    right: 42px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  &::placeholder {
+    color: ${props => props.theme.colors.carbon};
+    opacity: 0.4;
   }
 `
+
+export const Icon = styled(SearchIcon)``
