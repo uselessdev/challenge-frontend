@@ -5,11 +5,11 @@ export const SliderWrapper = styled.div<{ spaceBetweenItems?: string }>`
 
   .slick-slider {
     position: relative;
-    width: auto!important;
+    width: auto !important;
     display: block;
     box-sizing: border-box;
     margin: 0 auto;
-    
+
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -22,7 +22,7 @@ export const SliderWrapper = styled.div<{ spaceBetweenItems?: string }>`
     -webkit-tap-highlight-color: transparent;
 
     @media (min-width: 992px) {
-        width: 68.4%!important;
+      width: 68.4% !important;
     }
   }
 
@@ -151,11 +151,10 @@ const ArrowSlick = styled.div`
   }
 `
 
-
 export const ArrowNext = styled(ArrowSlick)`
   right: 26px;
 `
 
-export const ArrowPrev= styled(ArrowSlick)`
+export const ArrowPrev = styled(ArrowSlick)`
   left: 26px;
 `

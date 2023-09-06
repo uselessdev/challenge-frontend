@@ -1,7 +1,12 @@
-import Footer from "./components/footer";
-import Header from "./components/header";
-import Shelves from "./components/shelves";
-import { footerAllrightsReserved, helpLink, privacyAndPolicy, termsAndUsage } from "./constants";
+import Footer from './components/footer'
+import Header from './components/header'
+import Shelves from './components/shelves'
+import {
+  footerAllrightsReserved,
+  helpLink,
+  privacyAndPolicy,
+  termsAndUsage,
+} from './constants'
 
 function App() {
   return (
@@ -15,7 +20,7 @@ function App() {
         helpText={helpLink}
       />
     </>
-  );
+  )
 }
 
-export default App;
+export default App

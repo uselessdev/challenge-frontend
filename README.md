@@ -17,7 +17,9 @@ Ainda como parte do desafio é preciso fazer pequenos ajustes de layout (respons
 <br />
 
 ## Requirements
+
 ### Feature Busca com autocomplete aplicado:
+
 Nossa busca atualmente está sem um autocomplete para ajudar o usuário a encontrar o termo mais relevante a ser pesquisado, e para entregar essa melhoria de experiência se deve contemplar os seguintes critérios:
 
 - Toda vez que o usuário focar no campo de texto e o seu valor mudar, deve mostrar uma lista de sugestões.
@@ -73,9 +75,11 @@ _O número máximo de resultados. O default é 10, e o valor máximo permitido �
         }
     ]
 ```
+
 <br />
 
 ### Layout:
+
 Como forma de demonstrar o comportamento esperado dos dados que populam a tela da home e página de busca, mockamos os dados no front para permitir, também, melhor entendimento de layout.
 
 Abaixo estão alguns ajustes esperados no layout:
@@ -83,17 +87,17 @@ Abaixo estão alguns ajustes esperados no layout:
 - Aplicar o layout responsivo em todas as telas.
 - O filtro de pesquisa precisa estar responsivo, hoje ele funciona apenas para a versão desktop.
 - Segue abaixo os valores de media queries que utilizamos na Árvore como referência:
-    - tablet: 768px
-    - desktop: 992px
-    - desktop Large: 1216px
-    - desktop Xlarge: 1408px
-
+  - tablet: 768px
+  - desktop: 992px
+  - desktop Large: 1216px
+  - desktop Xlarge: 1408px
 
 **Obs.: O componente carrossel faz uso de uma lib terceira (react-slick), portanto ele não deve ser contemplado como ajuste de layout/comportamento de componente.**
 
 <br />
 
 ### Filtro de pesquisa:
+
 O filtro de pesquisa não está 100% funcional, é preciso fazer alguns ajustes para que ele possa funcionar como esperado do componente. Não há a necessidade de fazer a integração da API para esse caso e muito menos testes unitários, porém se o candidato desejar fazer, é um plus.
 
 - Os filtros de pesquisa devem popular a página de pesquisa de acordo com os filtros selecionados pelo usuário.
@@ -103,38 +107,40 @@ O filtro de pesquisa não está 100% funcional, é preciso fazer alguns ajustes 
     - de `R$31` até `R$50`
     - de `R$51` até `R$100`
     - Mais de `R$100`
-   - **2 - Disponibilidade para venda**
-     - disponível
-     - não disponível
-   - **3 - Formatos disponíveis**
-     - Epub
-     - PDF
-
+  - **2 - Disponibilidade para venda**
+    - disponível
+    - não disponível
+  - **3 - Formatos disponíveis**
+    - Epub
+    - PDF
 
 **Obs.: Candidatos a nível PLENO devem incluir os requisitos do filtro de pesquisa contemplados na seção [nice to have](#nice-to-have) desse documento.**
 <br />
 <br />
 
 ## Submit for review:
+
 Para que o teste possa ser avaliado, é importante que o candidato:
+
 - Suba o teste em um repositório no github.
 - Caso o repositório esteja privado, compartilhar o repo com os seguintes desenvolvedores: **@thaisquintana** e **@caiodsc**.
 - Mantenha o histórico de commits visíveis no repo.
 - Adicione um README para instruir o avaliador a rodar a aplicação.
-<br />
+  <br />
 
 ## Nice to have
 
 #### Filtro de pesquisa:
+
 - Testes unitários aplicados ao componente filtro de pesquisa.
 - Diferenciação do comportamento do componente quando responsivo.
 
 #### Performance:
+
 - Adicionar uma camada de cache para os dados populados no campo de busca com autocomplete.
 - Scroll infinito na página de busca.
 
 #### Cobertura de testes com e2e:
+
 - Teste aplicado no campo de busca com o redirecionamento para a página de busca.
 - Teste aplicado na página de busca com dados populados pela API como resultados da pesquisa feita pelo usuário (com e sem filtro aplicado na busca).
-
-

@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react'
 import {
   Content,
   ContentTitle,
   Button,
   FilterTitle,
   FilterContent,
-} from "./styles";
-import { FilterProps } from "./types";
-import { filtersWithInitialState } from "./constants";
+} from './styles'
+import { FilterProps } from './types'
+import { filtersWithInitialState } from './constants'
 
 const Filter: React.FC = ({
   mainTitle,
@@ -15,8 +15,8 @@ const Filter: React.FC = ({
   resetFilters,
 }: FilterProps) => {
   const handleToggleCheckbox = () => {
-    console.log("click");
-  };
+    console.log('click')
+  }
   return (
     <Content>
       <ContentTitle>{mainTitle}</ContentTitle>
@@ -44,7 +44,7 @@ const Filter: React.FC = ({
         </div>
       ))}
     </Content>
-  );
-};
+  )
+}
 
-export default Filter;
+export default Filter

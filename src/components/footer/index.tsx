@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import {
   Container,
   Content,
@@ -6,10 +6,15 @@ import {
   ContentLink,
   ContentList,
   ContentText,
-} from "./styles";
-import { FooterProps } from "./types";
+} from './styles'
+import { FooterProps } from './types'
 
-const Footer: React.FC<FooterProps> = ({text, privacyText, termsAndUsageText, helpText }) => {
+const Footer: React.FC<FooterProps> = ({
+  text,
+  privacyText,
+  termsAndUsageText,
+  helpText,
+}) => {
   return (
     <Container>
       <Content>
@@ -35,7 +40,7 @@ const Footer: React.FC<FooterProps> = ({text, privacyText, termsAndUsageText, he
         </ContentList>
       </Content>
     </Container>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

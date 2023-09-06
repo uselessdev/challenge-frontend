@@ -1,3 +1,3 @@
 export type SearchProps = {
-    value: string
+  value: string
 }

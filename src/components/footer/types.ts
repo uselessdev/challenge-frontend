@@ -1,6 +1,6 @@
 export type FooterProps = {
-    helpText: string
-    termsAndUsageText: string
-    privacyText: string
-    text: string
+  helpText: string
+  termsAndUsageText: string
+  privacyText: string
+  text: string
 }

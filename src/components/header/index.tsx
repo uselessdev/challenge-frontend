@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Container, Content, ContentSearch, ContentUser } from "./styles";
-import Search from "../search";
+import React, { useState } from 'react'
+import { Container, Content, ContentSearch, ContentUser } from './styles'
+import Search from '../search'
 
 const Header: React.FC = () => {
-  const [term, setTerm] = useState("");
+  const [term, setTerm] = useState('')
   return (
     <Container>
       <Content>
@@ -25,7 +25,7 @@ const Header: React.FC = () => {
         </ContentUser>
       </Content>
     </Container>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
