@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.footer`
   width: 100%;
   display: flex;
+  height: 233px;
   gap: ${props => props.theme.sizes[4]};
   align-items: center;
   flex-direction: column;
@@ -10,6 +11,10 @@ export const Container = styled.footer`
 
   background-color: ${props => props.theme.colors.white};
   border-top: 1px solid ${props => props.theme.colors.gray};
+
+  @media (min-width: ${props => props.theme.screens.desktop}) {
+    height: 83px;
+  }
 `
 
 export const ContainerContent = styled.div`

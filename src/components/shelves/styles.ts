@@ -15,6 +15,9 @@ export const Shelf = styled.section`
 
 export const ContentList = styled.div`
   width: 100%;
+  overflow: hidden;
+  max-width: calc(100dvw - ${props => props.theme.sizes[4]});
+
   display: flex;
   gap: ${props => props.theme.sizes[8]};
   flex-direction: column;
@@ -29,6 +32,8 @@ export const ContentList = styled.div`
       1fr min(${props => props.theme.sizes.container}, 100%)
       1fr;
     background-color: #daf6f3;
+    gap: ${props => props.theme.sizes[4]};
+    max-width: 100dvw;
 
     & > * {
       grid-column: 2;

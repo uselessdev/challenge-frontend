@@ -7,8 +7,13 @@ export const Container = styled.header`
   position: sticky;
 
   width: 100%;
+  height: 130px;
   padding: ${props => props.theme.sizes[4]};
   background-color: ${props => props.theme.colors.green};
+
+  @media (min-width: ${props => props.theme.screens.desktop}) {
+    height: 80px;
+  }
 `
 
 export const Content = styled.section`

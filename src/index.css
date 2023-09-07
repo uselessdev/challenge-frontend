@@ -32,7 +32,6 @@ a:hover {
 #root {
   margin: 0;
   display: grid;
-  grid-template-rows: 82px 1fr 83px;
   min-height: 100dvh;
 }
 
