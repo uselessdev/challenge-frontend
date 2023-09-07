@@ -4,11 +4,12 @@ export const SliderWrapper = styled.div<{ spaceBetweenItems?: string }>`
   margin: 0px;
 
   .slick-slider {
-    position: relative;
-    width: auto !important;
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+
     display: block;
-    box-sizing: border-box;
-    margin: 0 auto;
+    position: relative;
 
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -20,17 +21,12 @@ export const SliderWrapper = styled.div<{ spaceBetweenItems?: string }>`
     -ms-touch-action: pan-y;
     touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
-
-    @media (min-width: 992px) {
-      width: 68.4% !important;
-    }
   }
 
   .slick-list {
     position: relative;
     overflow: hidden;
     margin: 0;
-    padding: 0 0 16px 0;
   }
 
   .slick-list:focus {
@@ -56,12 +52,8 @@ export const SliderWrapper = styled.div<{ spaceBetweenItems?: string }>`
     top: 0;
     left: 0;
     display: flex;
-
-    padding: 10px 0 10px 0;
-    @media (min-width: 768px) {
-      padding-left: 8px;
-    }
   }
+
   .slick-track:before,
   .slick-track:after {
     display: table;
@@ -84,6 +76,7 @@ export const SliderWrapper = styled.div<{ spaceBetweenItems?: string }>`
     margin-right: ${({ spaceBetweenItems }) =>
       spaceBetweenItems ? spaceBetweenItems : 0};
   }
+
   [dir='rtl'] .slick-slide {
     float: right;
   }

@@ -24,6 +24,7 @@ export const theme = {
     gray: '#dee1e6',
     carbon: '#406a76',
     text: '#b2b4b9',
+    heading: '#053b4b',
   },
 
   rounded: {

@@ -1,86 +1,55 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  margin: 140px 0;
-`
+export const Container = styled.main``
 
-export const Content = styled.div`
+export const Shelf = styled.section`
   width: 100%;
+  display: grid;
+  gap: ${props => props.theme.sizes[4]};
+  grid-template-columns: 1fr min(${props => props.theme.sizes.container}, 100%) 1fr;
 
-  @media (min-width: 1408px) {
-    max-width: 1920px;
-    margin: 20px auto;
+  & > *:not(:nth-of-type(3)) {
+    grid-column: 2;
   }
 `
 
 export const ContentList = styled.div`
   width: 100%;
-  padding: 16px;
-  max-width: 375px;
+  display: flex;
+  gap: ${props => props.theme.sizes[8]};
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: ${props => props.theme.sizes[8]};
+  padding-bottom: ${props => props.theme.sizes[8]};
+
   &:nth-child(3) {
+    display: grid;
+    grid-column: 1 / 4;
+    grid-template-columns:
+      1fr min(${props => props.theme.sizes.container}, 100%)
+      1fr;
     background-color: #daf6f3;
-  }
 
-  @media (min-width: 395px) {
-    max-width: 395px;
+    & > * {
+      grid-column: 2;
+    }
   }
+`
 
-  @media (min-width: 414px) {
-    max-width: 414px;
-  }
+export const TitleCategory = styled.h2`
+  font-weight: 700;
+  color: ${props => props.theme.colors.heading};
+  font-size: ${props => props.theme.font.md};
+`
 
-  @media (min-width: 768px) {
-    max-width: 768px;
-  }
-
-  @media (min-width: 820px) {
-    max-width: 820px;
-  }
-
-  @media (min-width: 912px) {
-    max-width: 912px;
-  }
-
-  @media (min-width: 992px) {
-    max-width: none;
-  }
+export const Content = styled.div`
+  width: 100%;
 `
 
 export const ContentItem = styled.div`
-  display: flex;
-  width: calc(100% - 80px);
-  max-width: 768px;
-
-  > img {
-    width: 198px;
-    height: 296px;
-  }
-
-  @media (min-width: 768px) {
-    max-width: 768px;
+  img {
     width: 100%;
-    margin: 20px auto;
+    object-fit: cover;
+    object-position: center;
   }
-
-  @media (min-width: 992px) {
-    max-width: 1296px;
-  }
-`
-
-export const TitleCategory = styled.div`
-  color: #053b4b;
-  font-size: 16px;
-  font-weight: 700;
-  max-width: 400px;
-  padding: 30px 0 0;
-
-  @media (min-width: 1408px) {
-    margin: 0 auto;
-    padding: 30px 0 0;
-    max-width: 1296px;
-  }
-`
-
-export const Shelf = styled.div`
-  width: 100%;
 `
