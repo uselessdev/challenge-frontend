@@ -2,6 +2,10 @@ import styled from 'styled-components'
 import { ReactComponent as WhiteLogo } from '../../assets/logo.svg'
 
 export const Container = styled.header`
+  top: 0;
+  z-index: 10;
+  position: sticky;
+
   width: 100%;
   padding: ${props => props.theme.sizes[4]};
   background-color: ${props => props.theme.colors.green};
