@@ -32,6 +32,7 @@ export const ContentSearch = styled.div`
 
 export const ContentUser = styled.div`
   display: none;
+  color: ${props => props.theme.colors.white};
 
   @media (min-width: ${props => props.theme.screens.desktop}) {
     display: block;
