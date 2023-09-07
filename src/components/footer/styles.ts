@@ -1,96 +1,72 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  background-color: #fff;
+export const Container = styled.footer`
   width: 100%;
-  border-top: 1px solid #dee1e6;
-  display: block;
-  padding: 16px;
-  text-align: center;
-  height: auto;
-  max-width: 375px;
+  display: flex;
+  gap: ${props => props.theme.sizes[4]};
+  align-items: center;
+  flex-direction: column;
+  padding: ${props => props.theme.sizes[4]};
 
-  @media (min-width: 395px) {
-    max-width: 395px;
-  }
+  background-color: ${props => props.theme.colors.white};
+  border-top: 1px solid ${props => props.theme.colors.gray};
+`
 
-  @media (min-width: 414px) {
-    max-width: 414px;
-  }
+export const ContainerContent = styled.div`
+  width: 100%;
+  max-width: ${props => props.theme.sizes.container};
+  display: flex;
+  gap: ${props => props.theme.sizes[4]};
+  flex-direction: column;
+  align-items: center;
 
-  @media (min-width: 768px) {
-    max-width: 768px;
-    margin: 20px auto;
-  }
-
-  @media (min-width: 912px) {
-    max-width: 912px;
-  }
-
-  @media (min-width: 992px) {
-    width: 100%;
-    max-width: none;
-    padding: 16px 0 0;
-    align-items: baseline;
-    display: flex;
+  @media (min-width: ${props => props.theme.screens.desktop}) {
+    margin: 0 auto;
     flex-direction: row;
     justify-content: space-between;
-    position: fixed;
-    bottom: -23px;
-    left: 0;
-    right: 0;
-    z-index: 2;
-    height: 90px;
+    align-items: baseline;
   }
 `
-export const Content = styled.div`
-  background-color: #fff;
-  width: 100%;
 
-  @media (min-width: 992px) {
-    padding: 0;
-    width: auto;
-    max-width: 1280px;
-    margin: 0 auto;
-  }
+export const Content = styled.section`
+  display: inline-flex;
+  background-color: ${props => props.theme.colors.white};
 `
 
 export const ContentText = styled.p`
-  font-size: 12px;
-  color: #b2b4b9;
+  font-size: ${props => props.theme.font.sm};
+  color: ${props => props.theme.colors.text};
 `
 
 export const ContentList = styled.ul`
   list-style: none;
-  padding-left: 0;
-  font-size: 16px;
-  display: block;
+  flex-direction: column;
+  display: inline-flex;
+  gap: ${props => props.theme.sizes[2]};
+  font-size: ${props => props.theme.font.md};
 
-  @media (min-width: 992px) {
-    display: flex;
-    justify-content: space-between;
+  @media (min-width: ${props => props.theme.screens.desktop}) {
+    flex-direction: row;
   }
 `
 
 export const ContentItem = styled.li`
-  border: 1px solid #dee1e6;
-  padding: 12px 16px;
-  border-radius: 12px;
-  margin: 8px 0;
+  text-align: center;
+  border: 1px solid ${props => props.theme.colors.gray};
+  padding: ${props => `${props.theme.sizes[3]} ${props.theme.sizes[4]}`};
+  border-radius: ${props => props.theme.sizes[3]};
 
-  &:hover {
+  &:hover,
+  &:focus-within {
     border-color: #86878b;
-  }
-
-  @media (min-width: 992px) {
-    margin: 0 6px;
   }
 `
 
 export const ContentLink = styled.a`
-  text-decoration: none;
-  color: #b2b4b9;
+  outline: none;
   font-weight: 700;
+  text-decoration: none;
+  color: ${props => props.theme.colors.text};
 
   &:hover {
     color: #86878b;

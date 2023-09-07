@@ -18,10 +18,12 @@ export const theme = {
   },
 
   colors: {
+    white: '#ffffff',
     green: '#45d0c1',
     smoke: '#f1f7fc',
     gray: '#dee1e6',
     carbon: '#406a76',
+    text: '#b2b4b9',
   },
 
   rounded: {
@@ -29,6 +31,7 @@ export const theme = {
   },
 
   font: {
+    sm: '12px',
     md: '16px',
   },
 } as const
