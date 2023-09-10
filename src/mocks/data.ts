@@ -818,7 +818,16 @@ const data = {
       },
     },
   ],
-} as const
+}
 
-export type BooksVolumes = typeof data
+export type BooksVolumes = {
+  items: Array<{
+    id: string
+    volumeInfo: {
+      title: string
+      authors: Array<string>
+    }
+  }>
+}
+
 export default data
