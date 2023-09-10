@@ -1,5 +1,5 @@
 export type FilterProps = {
-  mainTitle: string
+  mainTitle?: string
   filters: FilterContentProps
   dispatch: React.Dispatch<React.SetStateAction<boolean>>
   hasSelectedFilters: boolean

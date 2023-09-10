@@ -22,6 +22,7 @@ export const theme = {
     green: '#45d0c1',
     smoke: '#f1f7fc',
     gray: '#dee1e6',
+    filter: '#9eaeb7',
     carbon: '#406a76',
     text: '#b2b4b9',
     heading: '#053b4b',

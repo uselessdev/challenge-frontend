@@ -1,41 +1,54 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  padding: 16px;
+export const Container = styled.main`
   width: 100%;
-
-  @media (min-width: 992px) {
-    margin: 140px 0;
-  }
-`
-
-export const Content = styled.div`
-  width: 100%;
-  display: flex;
-
-  @media (min-width: 992px) {
-    padding: 0;
-    margin: 0 auto;
-  }
-`
-
-export const ContentResults = styled.div`
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  justify-content: center;
-  gap: 48px;
   display: grid;
-  margin: 49px 0;
-  width: 46%;
+  min-height: calc(100dvh - 160px);
+  grid-template-columns: 1fr min(100%, ${props => props.theme.sizes.container}) 1fr;
+  padding-left: ${props => props.theme.sizes[4]};
+  padding-right: ${props => props.theme.sizes[4]};
+
+  & > * {
+    grid-column: 2;
+  }
 `
 
-export const ContentResultsWrapper = styled.div`
-  margin: 10px 0;
+export const Content = styled.section`
+  width: 100%;
+  display: grid;
+  gap: ${props => props.theme.sizes[8]};
+  padding-top: ${props => props.theme.sizes[8]};
+  padding-bottom: ${props => props.theme.sizes[8]};
+
+  @media (min-width: ${props => props.theme.screens.desktop}) {
+    grid-template-columns: 320px 1fr;
+  }
 `
 
-export const ContentResultsCover = styled.div`
+export const ContentResults = styled.section`
+  width: 100%;
+  display: grid;
+  gap: ${props => props.theme.sizes[6]};
+  grid-template-columns: 1fr 1fr;
+
+  @media (min-width: ${props => props.theme.screens.tablet}) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (min-width: ${props => props.theme.screens.desktop}) {
+    grid-template-columns: repeat(auto-fill, min(1fr, 100%));
+  }
+`
+
+export const ContentResultsWrapper = styled.article`
+  width: 100%;
+`
+
+export const ContentResultsCover = styled.picture`
   img {
-    width: 124px;
-    height: 185px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 `
 
@@ -46,8 +59,18 @@ export const ContentResultsTitle = styled.div`
   }
 `
 
-export const ContentResultsCategory = styled.div`
-  span {
+export const ContentResultData = styled.div`
+  gap: 2px;
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    font-size: ${props => props.theme.font.md};
+    font-weight: 500;
+    color: ${props => props.theme.colors.heading};
+  }
+
+  p {
     font-size: 14px;
     color: #9eaeb7;
   }

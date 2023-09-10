@@ -1,20 +1,19 @@
 import styled from 'styled-components'
 
-export const Content = styled.div`
-  background-color: #fff;
+export const Content = styled.aside`
+  display: flex;
+  flex-direction: column;
+  gap: ${props => props.theme.sizes[8]};
+  background-color: ${props => props.theme.colors.white};
   width: 100%;
-
-  @media (min-width: 992px) {
-    padding: 0;
-    margin: 0 auto;
-    width: 19%;
-  }
 `
+
 export const ContentTitle = styled.p`
-  color: #9eaeb7;
-  font-size: 16px;
+  color: ${props => props.theme.colors.filter};
+  font-size: ${props => props.theme.font.md};
   font-weight: 700;
 `
+
 export const Button = styled.button`
   height: 40px;
   border-radius: 10px;
@@ -23,21 +22,38 @@ export const Button = styled.button`
   text-transform: uppercase;
   background-color: #adb7bf;
 `
+
+export const FilterWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${props => props.theme.sizes[2]};
+`
+
 export const FilterTitle = styled.p`
-  color:;
-  font-size: 16px;
+  color: ${props => props.theme.colors.filter};
+  font-size: ${props => props.theme.font.sm};
   font-weight: 700;
 `
+
 export const FilterContent = styled.div`
   & > ul {
     list-style-type: none;
     padding: 0;
-    margin-bottom: 8px;
+    margin-bottom: ${props => props.theme.sizes[2]};
   }
-  & > ul > li {
+
+  & label {
+    display: flex;
+    gap: ${props => props.theme.sizes[2]};
     margin-bottom: 3px;
   }
-  & > ul > li > span {
+
+  & span {
+    font-size: ${props => props.theme.font.md};
     color: #053b4b;
+  }
+
+  & input:checked + span {
+    color: ${props => props.theme.colors.gray};
   }
 `

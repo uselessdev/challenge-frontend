@@ -9,16 +9,18 @@ import {
 } from '../../constants'
 
 function Home() {
-  ;<>
-    <Header />
-    <Shelves />
-    <Footer
-      text={footerAllrightsReserved}
-      privacyText={privacyAndPolicy}
-      termsAndUsageText={termsAndUsage}
-      helpText={helpLink}
-    />
-  </>
+  return (
+    <>
+      <Header />
+      <Shelves />
+      <Footer
+        text={footerAllrightsReserved}
+        privacyText={privacyAndPolicy}
+        termsAndUsageText={termsAndUsage}
+        helpText={helpLink}
+      />
+    </>
+  )
 }
 
 export default Home

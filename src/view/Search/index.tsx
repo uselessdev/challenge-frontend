@@ -4,6 +4,7 @@ import Filters from '../../components/filters'
 import {
   Container,
   Content,
+  ContentResultData,
   ContentResults,
   ContentResultsCategory,
   ContentResultsCover,
@@ -23,9 +24,11 @@ const Search: React.FC = () => {
   return (
     <>
       <Header />
+
       <Container>
         <Content>
-          <Filters />
+          <Filters mainTitle="Filtrar Resultados da busca:" />
+
           <ContentResults>
             {books.map(shelf => (
               <>
@@ -34,12 +37,10 @@ const Search: React.FC = () => {
                     <ContentResultsCover>
                       <img src={book.urlImage} alt={book.slug} />
                     </ContentResultsCover>
-                    <ContentResultsTitle>
-                      <label>{book.title} </label>
-                    </ContentResultsTitle>
-                    <ContentResultsCategory>
-                      <span>{book.autor}</span>
-                    </ContentResultsCategory>
+                    <ContentResultData>
+                      <h3>{book.title}</h3>
+                      <p>{book.autor}</p>
+                    </ContentResultData>
                   </ContentResultsWrapper>
                 ))}
               </>
@@ -47,6 +48,7 @@ const Search: React.FC = () => {
           </ContentResults>
         </Content>
       </Container>
+
       <Footer
         text={footerAllrightsReserved}
         privacyText={privacyAndPolicy}
