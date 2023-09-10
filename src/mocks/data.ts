@@ -1,4 +1,4 @@
-export default {
+const data = {
   kind: 'books#volumes',
   totalItems: 569,
   items: [
@@ -818,4 +818,7 @@ export default {
       },
     },
   ],
-}
+} as const
+
+export type BooksVolumes = typeof data
+export default data
