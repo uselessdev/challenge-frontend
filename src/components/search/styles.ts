@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { ReactComponent as SearchIcon } from '../../assets/search-icon.svg'
 
 export const SearchContainer = styled.form`
+  position: relative;
+
   width: 100%;
   display: flex;
   align-items: center;
