@@ -1,5 +1,4 @@
 import { useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import {
   Icon,
   InputSearch,
@@ -18,7 +17,11 @@ function highlightTerm(text: string, highlight = '') {
   return text.replace(new RegExp(`(${highlight})`, 'gi'), '<strong>$1</strong>')
 }
 
-const Search = () => {
+type Props = {
+  onSelectSuggestion: (value: string) => void
+}
+
+const Search = ({ onSelectSuggestion }: Props) => {
   const { term, onChangeSearchTerm, suggestions, setTerm } = useSearch()
   const [visible, setVisible] = useState(true)
   const searchRef = useRef(null)
@@ -28,11 +31,9 @@ const Search = () => {
     handler: () => setVisible(false)
   })
 
-  const navigate = useNavigate()
-
   const handleClick = (name: string) => {
     setVisible(false)
-    navigate(`/busca?s=${name}`)
+    onSelectSuggestion(name)
   }
 
   return (

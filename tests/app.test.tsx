@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from './utils'
 import Search from '../src/components/search'
 
 test('should show suggestions after search', async () => {
-  render(<Search />)
+  render(<Search onSelectSuggestion={() => {}} />)
 
   const search = screen.getByPlaceholderText('Pesquisar...')
   await user.type(search, 'fundação')
@@ -14,14 +14,20 @@ test('should show suggestions after search', async () => {
   expect(results).toBeVisible()
 })
 
-test('should close suggestions on blur', async () => {
-  render(<Search />)
+test('should close suggestions on click outside', async () => {
+  render(
+    <div>
+      <span>outside</span>
+      <Search onSelectSuggestion={() => {}} />
+    </div>
+  )
 
   const search = screen.getByPlaceholderText('Pesquisar...')
   await user.type(search, 'fundação')
 
   const results = screen.getByRole('button', { name: /fundação e império/i })
 
-  fireEvent.blur(search)
+  await user.click(screen.getByText(/outside/i))
+
   expect(results).not.toBeInTheDocument()
 })

@@ -1,7 +1,10 @@
+import { useNavigate } from 'react-router-dom'
 import { Container, Content, ContentSearch, ContentUser, Logo } from './styles'
 import Search from '../search'
 
 const Header = () => {
+  const navigate = useNavigate()
+
   return (
     <Container>
       <Content>
@@ -12,7 +15,7 @@ const Header = () => {
         </div>
 
         <ContentSearch>
-          <Search />
+          <Search onSelectSuggestion={suggestion => navigate(`/busca?s=${suggestion}`)} />
         </ContentSearch>
 
         <ContentUser>
