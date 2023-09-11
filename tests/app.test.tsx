@@ -6,11 +6,11 @@ test('should show suggestions after search', async () => {
   render(<Search />)
 
   const search = screen.getByPlaceholderText('Pesquisar...')
-  await user.type(search, 'Harry Potter')
+  await user.type(search, 'fundação')
 
-  expect(search).toHaveValue('Harry Potter')
+  expect(search).toHaveValue('fundação')
 
-  const results = screen.getByRole('button', { name: /harry potter e a ordem da fênix/i })
+  const results = screen.getByRole('button', { name: /fundação e império/i })
   expect(results).toBeVisible()
 })
 
@@ -18,9 +18,9 @@ test('should close suggestions on blur', async () => {
   render(<Search />)
 
   const search = screen.getByPlaceholderText('Pesquisar...')
-  await user.type(search, 'Harry Potter')
+  await user.type(search, 'fundação')
 
-  const results = screen.getByRole('button', { name: /harry potter e a ordem da fênix/i })
+  const results = screen.getByRole('button', { name: /fundação e império/i })
 
   fireEvent.blur(search)
   expect(results).not.toBeInTheDocument()
