@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Icon,
   InputSearch,
@@ -7,6 +8,7 @@ import {
   SearchSuggestionsItem
 } from './styles'
 import { useSearch } from '../../hooks/use-search';
+import { useClickOutside } from '../../hooks/use-clickoutside';
 
 function highlightTerm(text: string, highlight = '') {
   if (highlight.length <= 0) {
@@ -17,16 +19,28 @@ function highlightTerm(text: string, highlight = '') {
 }
 
 const Search = () => {
-  const { term, onChangeSearchTerm, suggestions } = useSearch()
+  const { term, onChangeSearchTerm, suggestions, setTerm } = useSearch()
   const [visible, setVisible] = useState(true)
+  const searchRef = useRef(null)
+
+  useClickOutside({
+    ref: searchRef,
+    handler: () => setVisible(false)
+  })
+
+  const navigate = useNavigate()
+
+  const handleClick = (name: string) => {
+    setVisible(false)
+    navigate(`/busca?s=${name}`)
+  }
 
   return (
-    <SearchContainer>
+    <SearchContainer ref={searchRef}>
       <InputSearch
         value={term}
         onChange={onChangeSearchTerm}
         onFocus={() => setVisible(true)}
-        onBlur={() => setVisible(false)}
         type="text"
         placeholder="Pesquisar..."
       />
@@ -38,6 +52,10 @@ const Search = () => {
             <SearchSuggestionsItem
               type="button"
               key={suggestion.id}
+              onClick={() => {
+                handleClick(suggestion.title)
+                setTerm(suggestion.title)
+              }}
               dangerouslySetInnerHTML={{ __html: highlightTerm(suggestion.title, term) }}
             />
           ))}

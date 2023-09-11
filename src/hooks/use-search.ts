@@ -46,5 +46,6 @@ export function useSearch() {
     suggestions,
     onChangeSearchTerm,
     results,
+    setTerm,
   }
 }
