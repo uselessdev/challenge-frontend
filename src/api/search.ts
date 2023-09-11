@@ -1,33 +1,27 @@
 import { BooksVolumes } from '../mocks/data'
 
-type SuccessResponse = {
-  success: true
-  data: BooksVolumes
+type SearchBooksArgs = {
+  q: string
+  startIndex: number
+  maxResults: number
+  category?: string
 }
 
-type ErrorResponse = {
-  success: false
-  error: string
-  json: Record<string, unknown>
-}
+export const API_BASE_URL = 'https://www.googleapis.com/books/v1/volumes'
 
-type SearchBooksResponse = SuccessResponse | ErrorResponse
-
-export async function searchBooks(
-  term = 'harry+potter',
-  page = 0
-): Promise<SearchBooksResponse> {
+export async function searchBooks({
+  q = '',
+  maxResults = 40,
+  startIndex = 0,
+  category,
+}: Partial<SearchBooksArgs>): Promise<BooksVolumes> {
   const result = await fetch(
-    `https://www.googleapis.com/books/v1/volumes?q=${term}&startIndex=${page}&maxResults=10`
+    `${API_BASE_URL}?q=${q}+subject:${category}&startIndex=${startIndex}&maxResults=${maxResults}&orderBy=relevance`
   )
 
   if (!result.ok) {
-    return {
-      success: false,
-      error: result.statusText,
-      json: await result.json(),
-    }
+    throw new Error(result.statusText)
   }
 
-  return { success: true, data: await result.json() }
+  return result.json()
 }

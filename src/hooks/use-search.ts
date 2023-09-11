@@ -17,11 +17,8 @@ export function useSearch() {
     if (value.length > 0) {
       setIsLoading(true)
 
-      searchBooks().then(response => {
-        if (response.success) {
-          setResults(response.data)
-        }
-
+      searchBooks({}).then(response => {
+        setResults(response)
         setIsLoading(false)
       })
     }
