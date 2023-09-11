@@ -6,8 +6,18 @@ export type FilterProps = {
   resetFilters: () => void
 }
 
-export type FilterContentProps = {
-  price: Price
-  availableItems: AvailableItems
-  availableFormats: AvailableFormats
-}
+export type FilterContentProps = Record<
+  'price' | 'availableItems' | 'availableFormats',
+  {
+    title: string
+    items: Array<{
+      id: string | number
+      label?: string
+      checked: boolean
+      rangeValue?: {
+        min: number
+        max: number
+      }
+    }>
+  }
+>

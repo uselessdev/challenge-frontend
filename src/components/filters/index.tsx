@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Content,
   ContentTitle,
@@ -15,10 +14,6 @@ const Filter = ({
   hasSelectedFilters,
   resetFilters,
 }: FilterProps) => {
-  // const handleToggleCheckbox = () => {
-  //   console.log('click')
-  // }
-
   return (
     <Content>
       {mainTitle ? (
@@ -41,8 +36,6 @@ const Filter = ({
                     <input
                       name={item.label}
                       type="checkbox"
-                      // checked={item.checked}
-                      // onChange={() => handleToggleCheckbox()}
                     />
                     <span>{item.label}</span>
                   </label>
