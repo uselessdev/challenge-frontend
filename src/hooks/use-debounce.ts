@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 
-export function useDebounceValue(value: string, time = 250) {
+const TIME = import.meta.env.MODE === 'test' ? 0 : 250
+
+export function useDebounceValue(value: string, time = TIME) {
   const [debounceValue, setDebounceValue] = useState(value)
 
   useEffect(() => {

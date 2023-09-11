@@ -7,14 +7,14 @@ export function useSearch() {
   const [term, setTerm] = useState('')
   const [loading, setIsLoading] = useState(false)
   const [results, setResults] = useState<BooksVolumes | null>(null)
-  const debounced = useDebounceValue(term)
+  const value = useDebounceValue(term)
 
   const { onChangeSearchTerm } = useMemo(() => {
     const onChangeSearchTerm = (event: ChangeEvent<HTMLInputElement>) => {
       setTerm(event.target.value)
     }
 
-    if (debounced.length > 0) {
+    if (value.length > 0) {
       setIsLoading(true)
 
       searchBooks().then(response => {
@@ -29,11 +29,21 @@ export function useSearch() {
     return {
       onChangeSearchTerm,
     }
-  }, [debounced])
+  }, [value])
+
+  const suggestions = useMemo(() => {
+    return (
+      results?.items.map(result => ({
+        id: result.id,
+        title: result.volumeInfo.title,
+      })) ?? []
+    )
+  }, [results])
 
   return {
     term,
     loading,
+    suggestions,
     onChangeSearchTerm,
     results,
   }

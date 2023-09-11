@@ -1,11 +1,7 @@
 import { Container, Content, ContentSearch, ContentUser, Logo } from './styles'
-
 import Search from '../search'
-import { useSearch } from '../../hooks/use-search'
 
 const Header = () => {
-  const { term, onChangeSearchTerm } = useSearch()
-
   return (
     <Container>
       <Content>
@@ -16,7 +12,7 @@ const Header = () => {
         </div>
 
         <ContentSearch>
-          <Search onChange={onChangeSearchTerm} value={term} />
+          <Search />
         </ContentSearch>
 
         <ContentUser>
