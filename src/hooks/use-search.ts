@@ -16,8 +16,6 @@ export function useSearch() {
     enabled: Boolean(value),
   })
 
-  console.log(books)
-
   const suggestions =
     isLoading || !books
       ? []
