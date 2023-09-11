@@ -81,7 +81,14 @@ export const SliderWrapper = styled.div`
   }
 
   .slick-slide img {
-    display: block;
+    img {
+      width: 100%;
+      display: block;
+      object-fit: contain;
+      object-position: center;
+      background-color: #e5f3f1;
+      aspect-ratio: 9 / 14;
+    }
   }
 
   .slick-slide.slick-loading img {

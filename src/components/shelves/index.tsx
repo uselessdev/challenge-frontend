@@ -35,7 +35,7 @@ const Shelves = ({ shelves }: Props) => {
                 <Carousel settings={settings}>
                   {shelf.books.map(book => (
                     <ContentItem key={book.title}>
-                      <img src={book.urlImage} alt={book.title} height="295px" width="190px" />
+                      <img src={book.urlImage} alt={book.title} />
                     </ContentItem>
                   ))}
                 </Carousel>

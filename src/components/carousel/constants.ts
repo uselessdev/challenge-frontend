@@ -1,16 +1,17 @@
 const settings = {
   slidesToShow: 7,
-  slidesToScroll: 5,
+  slidesToScroll: 7,
   initialSlide: 0,
   dots: false,
   infinite: false,
+  centerMode: false,
   speed: 500,
   swipeToSlide: true,
   responsive: [
     {
       breakpoint: 1024,
       settings: {
-        slidesToShow: 7,
+        slidesToShow: 4,
         slidesToScroll: 4,
       },
     },

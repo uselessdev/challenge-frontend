@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { useSearchParams } from 'react-router-dom'
 import Filters from '../../components/filters'
 import {
@@ -31,7 +30,7 @@ const Search = () => {
           {books.items.map(book => (
             <ContentResultsWrapper key={book.id}>
               <ContentResultsCover>
-                <img width="240px" height="360px" src={book.volumeInfo.imageLinks?.thumbnail} alt={book.volumeInfo.title} />
+                <img src={book.volumeInfo.imageLinks?.thumbnail} alt={book.volumeInfo.title} />
               </ContentResultsCover>
               <ContentResultData>
                 <h3>{book.volumeInfo.title}</h3>

@@ -32,7 +32,7 @@ export const ContentResults = styled.section`
   grid-template-columns: 1fr 1fr;
 
   @media (min-width: ${props => props.theme.screens.tablet}) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
 
   @media (min-width: ${props => props.theme.screens.desktop}) {
@@ -46,11 +46,12 @@ export const ContentResultsWrapper = styled.article`
 
 export const ContentResultsCover = styled.picture`
   img {
+    width: 100%;
     display: block;
-    max-width: 100%;
     object-fit: cover;
     object-position: center;
-    background-color: #f9f9f9;
+    background-color: #fafafa;
+    aspect-ratio: 9 / 14;
   }
 `
 
