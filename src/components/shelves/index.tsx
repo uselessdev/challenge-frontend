@@ -17,12 +17,12 @@ const Shelves: React.FC = () => {
       <Shelf>
         {books.map(shelf => {
           return (
-            <ContentList>
+            <ContentList key={shelf.id}>
               <TitleCategory key={shelf.id}>
                 {shelf.shelfCategory}
               </TitleCategory>
               <Content>
-                <Carousel settings={settings} spaceBetweenItems="16px">
+                <Carousel settings={settings}>
                   {shelf.booksShelf.map(book => (
                     <ContentItem key={book.title}>
                       <img src={book.urlImage} alt={book.slug} />

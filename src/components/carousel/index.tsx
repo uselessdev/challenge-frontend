@@ -22,11 +22,11 @@ const ArrowButtonPrev = ({ onClick, className }: CarouselProps) => {
 }
 
 const Carousel: React.ForwardRefRenderFunction<SlickSlider, CarouselProps> = (
-  { children, settings, spaceBetweenItems, className, onClick },
+  { children, settings, className, onClick },
   ref
 ) => {
   return (
-    <SliderWrapper spaceBetweenItems={spaceBetweenItems}>
+    <SliderWrapper>
       <SlickSlider
         ref={ref}
         {...settings}

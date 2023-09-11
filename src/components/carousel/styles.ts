@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const SliderWrapper = styled.div<{ spaceBetweenItems?: string }>`
+export const SliderWrapper = styled.div`
   margin: 0px;
 
   .slick-slider {
@@ -73,8 +73,7 @@ export const SliderWrapper = styled.div<{ spaceBetweenItems?: string }>`
 
     height: 100%;
     min-height: 1px;
-    margin-right: ${({ spaceBetweenItems }) =>
-      spaceBetweenItems ? spaceBetweenItems : 0};
+    margin-right: ${props => props.theme.sizes[4]};
   }
 
   [dir='rtl'] .slick-slide {
