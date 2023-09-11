@@ -13,7 +13,7 @@ export async function searchBooks({
   q = '',
   maxResults = 40,
   startIndex = 0,
-  category,
+  category = '',
 }: Partial<SearchBooksArgs>): Promise<BooksVolumes> {
   const result = await fetch(
     `${API_BASE_URL}?q=${q}+subject:${category}&startIndex=${startIndex}&maxResults=${maxResults}&orderBy=relevance`
