@@ -1,48 +1,37 @@
 import { ChangeEvent, useMemo, useState } from 'react'
-import { BooksVolumes } from '../mocks/data'
-import { searchBooks } from '../api/search'
 import { useDebounceValue } from './use-debounce'
+import { useBooks } from './use-books'
 
 export function useSearch() {
   const [term, setTerm] = useState('')
-  const [loading, setIsLoading] = useState(false)
-  const [results, setResults] = useState<BooksVolumes | null>(null)
   const value = useDebounceValue(term)
 
-  const { onChangeSearchTerm } = useMemo(() => {
-    const onChangeSearchTerm = (event: ChangeEvent<HTMLInputElement>) => {
-      setTerm(event.target.value)
-    }
+  const onChangeSearchTerm = (event: ChangeEvent<HTMLInputElement>) => {
+    setTerm(event.target.value)
+  }
 
-    if (value.length > 0) {
-      setIsLoading(true)
+  const { books, isLoading } = useBooks({
+    q: value,
+    maxResults: 6,
+    enabled: Boolean(value),
+  })
 
-      searchBooks({}).then(response => {
-        setResults(response)
-        setIsLoading(false)
-      })
-    }
+  console.log(books)
 
-    return {
-      onChangeSearchTerm,
-    }
-  }, [value])
-
-  const suggestions = useMemo(() => {
-    return (
-      results?.items.map(result => ({
-        id: result.id,
-        title: result.volumeInfo.title,
-      })) ?? []
-    )
-  }, [results])
+  const suggestions =
+    isLoading || !books
+      ? []
+      : books.items.map(book => ({
+          id: book.id,
+          title: book.volumeInfo.title,
+        }))
 
   return {
     term,
-    loading,
     suggestions,
+    loading: isLoading,
     onChangeSearchTerm,
-    results,
+    results: books,
     setTerm,
   }
 }

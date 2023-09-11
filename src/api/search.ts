@@ -16,7 +16,9 @@ export async function searchBooks({
   category = '',
 }: Partial<SearchBooksArgs>): Promise<BooksVolumes> {
   const result = await fetch(
-    `${API_BASE_URL}?q=${q}+subject:${category}&startIndex=${startIndex}&maxResults=${maxResults}&orderBy=relevance`
+    `${API_BASE_URL}?q=${q}${
+      category ? `+subject:` + category : ''
+    }&startIndex=${startIndex}&maxResults=${maxResults}&orderBy=relevance`
   )
 
   if (!result.ok) {

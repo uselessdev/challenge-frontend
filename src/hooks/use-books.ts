@@ -2,14 +2,21 @@ import { useQuery } from 'react-query'
 import { searchBooks } from '../api/search'
 import { BooksVolumes } from '../mocks/data'
 
-export function useBooks(category: string) {
+export function useBooks({
+  q = '',
+  category = '',
+  maxResults = 10,
+  enabled = true,
+}) {
   const { data, isLoading, status } = useQuery({
-    queryKey: ['FETCH_LATEST_BOOKS', category],
+    queryKey: ['FETCH_LATEST_BOOKS', category, maxResults, q],
     queryFn: () =>
       searchBooks({
+        q,
         category,
-        maxResults: 10,
+        maxResults,
       }),
+    enabled,
   })
 
   const books = (isLoading ? {} : data) as BooksVolumes
@@ -26,10 +33,10 @@ function mapBooksIntoCategories(books: BooksVolumes) {
 }
 
 export function useFeaturedBooks() {
-  const adventure = useBooks('adventure')
-  const fiction = useBooks('fiction')
-  const featured = useBooks('love')
-  const action = useBooks('action')
+  const adventure = useBooks({ category: 'adventure' })
+  const fiction = useBooks({ category: 'fiction' })
+  const featured = useBooks({ category: 'love' })
+  const action = useBooks({ category: 'action' })
 
   return [
     {
