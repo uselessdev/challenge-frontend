@@ -1,4 +1,3 @@
-import React from 'react'
 import {
   Container,
   Content,
@@ -9,23 +8,34 @@ import {
 } from './styles'
 import { settings } from '../carousel/constants'
 import Carousel from '../carousel'
-import { books } from './constants'
 
-const Shelves: React.FC = () => {
+type Props = {
+  shelves: Array<{
+    id: number;
+    name: string;
+    books: Array<{
+      title: string;
+      id: string;
+      urlImage?: string;
+    }>
+  }>
+}
+
+const Shelves = ({ shelves }: Props) => {
   return (
     <Container>
       <Shelf>
-        {books.map(shelf => {
+        {shelves.map(shelf => {
           return (
             <ContentList key={shelf.id}>
               <TitleCategory key={shelf.id}>
-                {shelf.shelfCategory}
+                {shelf.name}
               </TitleCategory>
               <Content>
                 <Carousel settings={settings}>
-                  {shelf.booksShelf.map(book => (
+                  {shelf.books.map(book => (
                     <ContentItem key={book.title}>
-                      <img src={book.urlImage} alt={book.slug} />
+                      <img src={book.urlImage} alt={book.title} height="295px" width="190px" />
                     </ContentItem>
                   ))}
                 </Carousel>

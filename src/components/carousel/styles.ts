@@ -79,9 +79,11 @@ export const SliderWrapper = styled.div`
   [dir='rtl'] .slick-slide {
     float: right;
   }
+
   .slick-slide img {
     display: block;
   }
+
   .slick-slide.slick-loading img {
     display: none;
   }
