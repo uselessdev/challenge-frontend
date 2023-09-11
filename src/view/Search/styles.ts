@@ -46,9 +46,11 @@ export const ContentResultsWrapper = styled.article`
 
 export const ContentResultsCover = styled.picture`
   img {
-    width: 100%;
+    display: block;
+    max-width: 100%;
     object-fit: cover;
     object-position: center;
+    background-color: #f9f9f9;
   }
 `
 
