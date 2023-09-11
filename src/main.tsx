@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'busca',
-        element: <Search />
+        element: <Search />,
       }
     ]
   }
