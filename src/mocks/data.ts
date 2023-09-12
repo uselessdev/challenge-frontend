@@ -746,31 +746,33 @@ const data = {
   ],
 }
 
+export type Book = {
+  id: string
+  volumeInfo: {
+    title: string
+    authors: Array<string>
+    categories: Array<string>
+    imageLinks?: {
+      smallThumbnail: string
+      thumbnail: string
+    }
+  }
+  accessInfo: Record<'epub' | 'pdf', { isAvailable: boolean }>
+  saleInfo: {
+    saleability: 'NOT_FOR_SALE' | 'FOR_SALE'
+    listPrice?: {
+      amount: number
+      currencyCode: 'BRL'
+    }
+    retailPrice?: {
+      amount: number
+      currencyCode: 'BRL'
+    }
+  }
+}
+
 export type BooksVolumes = {
-  items: Array<{
-    id: string
-    volumeInfo: {
-      title: string
-      authors: Array<string>
-      categories: Array<string>
-      imageLinks?: {
-        smallThumbnail: string
-        thumbnail: string
-      }
-    }
-    accessInfo: Record<'epub' | 'pdf', { isAvailable: boolean }>
-    saleInfo: {
-      saleability: 'NOT_FOR_SALE' | 'FOR_SALE'
-      listPrice?: {
-        amount: number
-        currencyCode: 'BRL'
-      }
-      retailPrice?: {
-        amount: number
-        currencyCode: 'BRL'
-      }
-    }
-  }>
+  items: Array<Book>
 }
 
 export default data

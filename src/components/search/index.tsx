@@ -8,6 +8,7 @@ import {
 } from './styles'
 import { useSearch } from '../../hooks/use-search';
 import { useClickOutside } from '../../hooks/use-clickoutside';
+import { useFilters } from '../../hooks/use-filters';
 
 function highlightTerm(text: string, highlight = '') {
   if (highlight.length <= 0) {
@@ -18,12 +19,13 @@ function highlightTerm(text: string, highlight = '') {
 }
 
 type Props = {
+  search: string
   onSelectSuggestion: (value: string) => void
 }
 
-const Search = ({ onSelectSuggestion }: Props) => {
-  const { term, onChangeSearchTerm, suggestions, setTerm } = useSearch()
-  const [visible, setVisible] = useState(true)
+const Search = ({ onSelectSuggestion, search = '' }: Props) => {
+  const { term, onChangeSearchTerm, suggestions, setTerm } = useSearch(search)
+  const [visible, setVisible] = useState(false)
   const searchRef = useRef(null)
 
   useClickOutside({

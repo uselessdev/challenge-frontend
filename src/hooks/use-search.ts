@@ -2,8 +2,8 @@ import { ChangeEvent, useState } from 'react'
 import { useDebounceValue } from './use-debounce'
 import { useBooks } from './use-books'
 
-export function useSearch() {
-  const [term, setTerm] = useState('')
+export function useSearch(defaultValue = '') {
+  const [term, setTerm] = useState(defaultValue)
   const value = useDebounceValue(term)
 
   const onChangeSearchTerm = (event: ChangeEvent<HTMLInputElement>) => {
