@@ -1,12 +1,17 @@
 import { ReactElement } from 'react'
 import { render, RenderOptions } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
+import { QueryClientProvider, QueryClient } from 'react-query'
 import { theme } from '../src/theme'
+
+const client = new QueryClient()
 
 const Providers = ({ children }: { children: ReactElement }) => {
   return (
     <ThemeProvider theme={theme}>
-      {children}
+      <QueryClientProvider client={client}>
+        {children}
+      </QueryClientProvider>
     </ThemeProvider>
   )
 }

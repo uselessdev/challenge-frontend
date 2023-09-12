@@ -4,7 +4,7 @@ import { render, screen } from './utils'
 import Search from '../src/components/search'
 
 test('should show suggestions after search', async () => {
-  render(<Search onSelectSuggestion={() => {}} />)
+  render(<Search search="" onSelectSuggestion={() => {}} />)
 
   const search = screen.getByPlaceholderText('Pesquisar...')
   await user.type(search, 'fundação')
@@ -19,7 +19,7 @@ test('should close suggestions on click outside', async () => {
   render(
     <div>
       <span>outside</span>
-      <Search onSelectSuggestion={() => {}} />
+      <Search search="" onSelectSuggestion={() => {}} />
     </div>
   )
 
@@ -37,7 +37,7 @@ test('should click in suggestion item', async () => {
   const fn = vi.fn()
 
   render(
-    <Search onSelectSuggestion={fn} />
+    <Search search="" onSelectSuggestion={fn} />
   )
 
   const search = screen.getByPlaceholderText('Pesquisar...')
