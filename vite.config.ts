@@ -3,7 +3,6 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), svgr()],
   server: {
@@ -11,6 +10,7 @@ export default defineConfig({
   },
   test: {
     environment: 'jsdom',
+    include: ['./tests/*.test.ts(x)'],
     setupFiles: ['./tests/setup.ts'],
     globals: true,
   },
