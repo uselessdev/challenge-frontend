@@ -56,5 +56,6 @@ export const ContentItem = styled.div`
     width: 100%;
     object-fit: cover;
     object-position: center;
+    aspect-ratio: 9 / 14;
   }
 `
