@@ -8,7 +8,6 @@ import {
 } from './styles'
 import { useSearch } from '../../hooks/use-search';
 import { useClickOutside } from '../../hooks/use-clickoutside';
-import { useFilters } from '../../hooks/use-filters';
 
 function highlightTerm(text: string, highlight = '') {
   if (highlight.length <= 0) {
