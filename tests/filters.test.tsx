@@ -9,7 +9,7 @@ const defaultSelected = {
   formatos: ['epub']
 }
 
-test('should show suggestions after search', async () => {
+test('should validate filter component state with default props', async () => {
   const fn = vi.fn()
 
   render(<Filter filters={defaultSelected} onChange={fn} mainTitle="Testing Filter" />)
