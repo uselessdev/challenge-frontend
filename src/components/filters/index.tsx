@@ -11,8 +11,8 @@ import { filtersWithInitialState } from './constants'
 
 const Filter = ({
   mainTitle,
-  hasSelectedFilters,
-  resetFilters,
+  filters,
+  onChange,
 }: FilterProps) => {
   return (
     <Content>
@@ -20,9 +20,9 @@ const Filter = ({
         <ContentTitle>{mainTitle}</ContentTitle>
       ) : null}
 
-      {hasSelectedFilters ? (
+      {/* {hasSelectedFilters ? (
         <Button onClick={resetFilters}>Limpar Filtro</Button>
-      ) : null}
+      ) : null} */}
 
       {Object.entries(filtersWithInitialState).map(([filterType, category]) => (
         <FilterWrapper key={filterType}>
@@ -30,17 +30,23 @@ const Filter = ({
 
           <FilterContent>
             <ul>
-              {category?.items?.map((item: any) => (
+              {category?.items?.map((item: any) => {
+                const checked = filters ? Boolean((filters[category.name] ?? []).find((i: string) => i === item.value)) : false;
+
+                return (
                 <li key={item.id}>
                   <label>
                     <input
-                      name={item.label}
+                      name={category.name}
                       type="checkbox"
+                      value={item.rangeValue || item.value}
+                      defaultChecked={checked}
+                      onChange={onChange}
                     />
                     <span>{item.label}</span>
                   </label>
                 </li>
-              ))}
+              )})}
             </ul>
           </FilterContent>
         </FilterWrapper>

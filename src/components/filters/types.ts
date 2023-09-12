@@ -1,19 +1,20 @@
+import { ChangeEvent } from 'react'
+
 export type FilterProps = {
   mainTitle?: string
-  filters: FilterContentProps
-  dispatch: React.Dispatch<React.SetStateAction<boolean>>
-  hasSelectedFilters: boolean
-  resetFilters: () => void
+  filters?: Record<string, string[]>
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
 export type FilterContentProps = Record<
   'price' | 'availableItems' | 'availableFormats',
   {
     title: string
+    name: string
     items: Array<{
       id: string | number
       label?: string
-      checked: boolean
+      value?: unknown
       rangeValue?: {
         min: number
         max: number

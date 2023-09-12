@@ -3,56 +3,59 @@ import { FilterContentProps } from './types'
 export const filtersWithInitialState: FilterContentProps = {
   price: {
     title: 'Preço',
+    name: 'preco',
     items: [
       {
         id: 1,
         label: 'de R$0 até R$30',
-        checked: false,
+        value: '0-30',
       },
       {
         id: 2,
         label: 'de R$31 até R$50',
-        checked: false,
+        value: '31-50',
       },
       {
         id: 3,
         label: 'de R$51 até R$100',
-        checked: false,
-        rangeValue: {
-          min: 51,
-          max: 100,
-        },
+        value: '51-100',
       },
       {
         id: 4,
         label: 'Mais de R$100',
-        checked: false,
+        value: '100',
       },
     ],
   },
   availableItems: {
     title: 'Disponibilidade para venda',
+    name: 'disponibilidade',
     items: [
       {
         id: 1,
-        checked: false,
+        value: 'FOR_SALE',
+        label: 'Disponível',
       },
       {
         id: 2,
-        checked: false,
+        value: 'NOT_FOR_SALE',
+        label: 'Não Disponível',
       },
     ],
   },
   availableFormats: {
     title: 'Formatos disponíveis',
+    name: 'formatos',
     items: [
       {
         id: 1,
-        checked: false,
+        value: 'epub',
+        label: 'EPUB',
       },
       {
         id: 2,
-        checked: false,
+        value: 'pdf',
+        label: 'PDF',
       },
     ],
   },
